@@ -37,3 +37,7 @@
 - Recursos visuales e iconos versionados para renovar las copias anteriores en móvil.
 - Actualización del service worker sin caché HTTP y recarga automática cuando cambia el controlador de una app abierta.
 - Se conserva la identidad de instalación; el icono del lanzador Android depende de la actualización de Chrome.
+
+## 0.3.2 — 2026-10-11
+
+- En el descanso se muestra HT, usando STATUS_HALFTIME de ESPN aunque el reloj siga en 45+1. Al reanudar vuelve el minuto.

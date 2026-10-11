@@ -45,7 +45,7 @@ function matchHTML(f) {
  const teams=new Map(state.data.teams.map(t=>[t.id,t.name]));
  const time=f.confirmed&&f.kickoff?new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}).format(new Date(f.kickoff)):'Por confirmar';
  const scored=['finished','live','provisional'].includes(f.status)&&Number.isInteger(f.homeScore)&&Number.isInteger(f.awayScore);
- const status={finished:'Finalizado',live:'🔴 '+f.minutes+'′',provisional:'Final provisional',scheduled:f.confirmed?'Programado':'Fecha pendiente'}[f.status];
+ const status={finished:'Finalizado',live:'🔴 '+(f.minutes==='HT'?'HT':f.minutes+'′'),provisional:'Final provisional',scheduled:f.confirmed?'Programado':'Fecha pendiente'}[f.status];
  const date=f.confirmed&&f.kickoff?dayLabel(madridDay(f.kickoff)):'Sin fecha confirmada';
  return `<article class="match ${f.status==='live'?'playing':''}"><div class="match-date"><b>${escapeHTML(date)}</b><span>${escapeHTML(time)}</span><small>Jornada ${escapeHTML(f.round??'pendiente')}</small></div><div class="match-teams"><div><small>L</small><b>${escapeHTML(teams.get(f.home))}</b></div><div><small>V</small><b>${escapeHTML(teams.get(f.away))}</b></div></div><div class="match-score"><strong>${scored?f.homeScore+'–'+f.awayScore:escapeHTML(time)}</strong><span class="${f.status==='live'?'live':''}">${escapeHTML(status)}</span></div></article>`;
 }
@@ -99,7 +99,7 @@ function mergeLive(data,events) {
   const hs=Number(h.score),as=Number(a.score);
   if(!Number.isInteger(hs)||!Number.isInteger(as)||hs<0||as<0)continue;
   if(f.status==='finished')continue;
-  f.homeScore=hs;f.awayScore=as;f.status=type.state==='post'?'provisional':'live';f.minutes=String(status.displayClock||status.clock||0).replace(/['′]/g,'');updated++;
+  f.homeScore=hs;f.awayScore=as;f.status=type.state==='post'?'provisional':'live';f.minutes=type.name==='STATUS_HALFTIME'?'HT':String(status.displayClock||status.clock||0).replace(/['′]/g,'');updated++;
  }
  return updated;
 }

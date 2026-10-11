@@ -30,3 +30,11 @@ base.table.rows=v.rows;base.table.baseline={'12':[1,0]};v=projectedTable(base);a
 base.fixtures[0].homeScore=0;base.fixtures[0].awayScore=1;v=projectedTable(base);assert.equal(v.rows[0].name,'Manchester City');assert.equal(v.rows[0].pts,3);assert.equal(v.rows[0].p,1);assert.equal(v.rows[1].pts,-2);
 base.table.baseline=null;assert.equal(projectedTable(base).unavailable,true);
 console.log('Correcto: tabla provisional sin duplicados, corrección de marcador y sanciones preservadas.');
+
+// El descanso conserva el marcador y muestra HT; segunda parte recupera el minuto.
+const breakData={teams:[{id:1,name:'Liverpool'},{id:2,name:'Man City'}],fixtures:[{home:1,away:2,kickoff:'2026-10-11T15:30:00Z',status:'scheduled'}]};
+const breakEvent={date:'2026-10-11T15:30:00Z',competitions:[{status:{displayClock:"45'+1'",type:{state:'in',name:'STATUS_HALFTIME'}},competitors:[{homeAway:'home',team:{displayName:'Liverpool'},score:'0'},{homeAway:'away',team:{displayName:'Manchester City'},score:'0'}]}]};
+assert.equal(mergeLive(breakData,[breakEvent]),1);assert.equal(breakData.fixtures[0].minutes,'HT');assert.equal(breakData.fixtures[0].homeScore,0);
+breakEvent.competitions[0].status={displayClock:"46'",type:{state:'in',name:'STATUS_IN_PROGRESS'}};
+mergeLive(breakData,[breakEvent]);assert.equal(breakData.fixtures[0].minutes,'46');
+console.log('Correcto: HT en descanso y minuto al reanudar.');

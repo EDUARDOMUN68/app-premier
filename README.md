@@ -1,6 +1,6 @@
 # APP PREMIER
 
-Versión 0.3.1. Aplicación en español de la Premier League, adaptada a móvil y escritorio.
+Versión 0.3.2. Aplicación en español de la Premier League, adaptada a móvil y escritorio.
 
 - **Jornada:** calendario y resultados de las 38 jornadas.
 - **Clasificación:** tabla descargada de la fuente oficial de la Premier League, con su fecha de consulta.
