@@ -25,3 +25,9 @@
 
 - Iconos PNG 192 y 512 con margen de seguridad para instalación Android.
 - Identidad y ámbito explícitos de APP PREMIER, nombre completo en instalador y nueva caché de interfaz.
+
+## 0.3.0 — 2026-10-11
+
+- Rediseño rojo y blanco con equipos y marcadores destacados, filas inspiradas en Madridista y navegación inferior móvil.
+- Clasificación provisional con marcadores en directo, equipos señalados y zonas visuales.
+- Base oficial conciliada para evitar duplicados y conservar sanciones; prueba real con Liverpool–Manchester City en juego.

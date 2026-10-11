@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict');
-const {madridDay,eligibleDays,standings,mergeLive}=require('./app.js');
+const {madridDay,eligibleDays,standings,mergeLive,projectedTable}=require('./app.js');
 assert.equal(madridDay('2026-10-10T22:30:00Z'),'2026-10-11');
 assert.equal(madridDay('2026-10-25T23:30:00Z'),'2026-10-26');
 const fixtures=[
@@ -24,3 +24,9 @@ assert.equal(liveData.fixtures[0].status,'live');assert.equal(liveData.fixtures[
 liveData.fixtures[0].status='finished';assert.equal(mergeLive(liveData,[event]),0);
 event.date='2026-10-12T15:30:00Z';liveData.fixtures[0].status='scheduled';assert.equal(mergeLive(liveData,[event]),0);
 console.log('Correcto: directo por equipos/fecha, sin sobrescribir finales oficiales ni cambiar jornada.');
+const base={teams:[{id:1,name:'Liverpool'},{id:2,name:'Man City'}],table:{rows:[{name:'Liverpool',position:1,p:0,w:0,d:0,l:0,gf:0,ga:0,pts:-2},{name:'Manchester City',position:2,p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0}],baseline:{}},fixtures:[{id:12,home:1,away:2,status:'live',homeScore:1,awayScore:0}]};
+let v=projectedTable(base);assert.equal(v.changed,1);assert.equal(v.rows[0].pts,1);assert.equal(v.rows[0].p,1);assert.equal(base.table.rows[0].p,0);
+base.table.rows=v.rows;base.table.baseline={'12':[1,0]};v=projectedTable(base);assert.equal(v.changed,0);assert.equal(v.rows[0].p,1);
+base.fixtures[0].homeScore=0;base.fixtures[0].awayScore=1;v=projectedTable(base);assert.equal(v.rows[0].name,'Manchester City');assert.equal(v.rows[0].pts,3);assert.equal(v.rows[0].p,1);assert.equal(v.rows[1].pts,-2);
+base.table.baseline=null;assert.equal(projectedTable(base).unavailable,true);
+console.log('Correcto: tabla provisional sin duplicados, corrección de marcador y sanciones preservadas.');

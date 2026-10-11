@@ -3,8 +3,8 @@
   "short_name": "APP PREMIER",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f5f3f8",
-  "theme_color": "#f5f3f8",
+  "background_color": "#f5f6fa",
+  "theme_color": "#b71925",
   "icons": [
     {
       "src": "icon-192.png",

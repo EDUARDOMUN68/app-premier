@@ -14,12 +14,40 @@ function standings(data) {
  }
  return [...rows.values()].sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf||a.name.localeCompare(b.name));
 }
+function projectedTable(data) {
+ const table=data.table;
+ if(!table?.rows?.length)return {rows:standings(data).map((r,i)=>({...r,position:i+1})),mode:'fallback',changed:0};
+ const rows=table.rows.map(r=>({...r,basePosition:r.position}));
+ if(!table.baseline)return {rows,mode:'official',changed:0,unavailable:true};
+ const byKey=new Map(rows.map(r=>[teamKey(r.name),r]));
+ const byId=new Map(data.teams.map(t=>[t.id,byKey.get(teamKey(t.name))]));
+ let changed=0;
+ function apply(f,hs,as,sign){
+  for(const [r,gf,ga] of [[byId.get(f.home),hs,as],[byId.get(f.away),as,hs]]){
+   r.p+=sign;r.gf+=sign*gf;r.ga+=sign*ga;
+   if(gf>ga){r.w+=sign;r.pts+=3*sign;}else if(gf<ga)r.l+=sign;else{r.d+=sign;r.pts+=sign;}
+  }
+ }
+ for(const f of data.fixtures){
+  if(!['live','provisional','finished'].includes(f.status)||!Number.isInteger(f.homeScore)||!Number.isInteger(f.awayScore))continue;
+  if(!byId.get(f.home)||!byId.get(f.away))continue;
+  const old=table.baseline[String(f.id)];
+  if(old&&old[0]===f.homeScore&&old[1]===f.awayScore)continue;
+  if(old)apply(f,old[0],old[1],-1);
+  apply(f,f.homeScore,f.awayScore,1);changed++;
+  for(const id of [f.home,f.away]){const r=byId.get(id);r.provisional=true;r.live=f.status==='live';r.score=f.homeScore+'–'+f.awayScore;}
+ }
+ if(changed)rows.sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf||a.basePosition-b.basePosition);
+ rows.forEach((r,i)=>r.position=i+1);
+ return {rows,changed,mode:changed?'provisional':'official'};
+}
 function matchHTML(f) {
  const teams=new Map(state.data.teams.map(t=>[t.id,t.name]));
- const time=f.confirmed&&f.kickoff?new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}).format(new Date(f.kickoff)):'Hora por confirmar';
+ const time=f.confirmed&&f.kickoff?new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}).format(new Date(f.kickoff)):'Por confirmar';
  const scored=['finished','live','provisional'].includes(f.status)&&Number.isInteger(f.homeScore)&&Number.isInteger(f.awayScore);
- const status={finished:'Final · fuente oficial',live:`En directo · ${f.minutes}′`,provisional:'Final provisional',scheduled:f.confirmed?'Horario confirmado':'Fecha pendiente'}[f.status];
- return `<article class="match"><div class="match-meta"><span>Jornada ${escapeHTML(f.round??'por confirmar')}${f.kickoff&&f.confirmed?' · '+escapeHTML(dayLabel(madridDay(f.kickoff))):''}</span><span class="${f.status==='live'?'live':''}">${escapeHTML(status)}</span></div><div class="teams"><span>${escapeHTML(teams.get(f.home))}</span><div class="score ${f.status==='live'?'live':''}">${scored?f.homeScore+' – '+f.awayScore:escapeHTML(time)}<span class="status">${scored?escapeHTML(time):'Madrid'}</span></div><span class="away">${escapeHTML(teams.get(f.away))}</span></div></article>`;
+ const status={finished:'Finalizado',live:'🔴 '+f.minutes+'′',provisional:'Final provisional',scheduled:f.confirmed?'Programado':'Fecha pendiente'}[f.status];
+ const date=f.confirmed&&f.kickoff?dayLabel(madridDay(f.kickoff)):'Sin fecha confirmada';
+ return `<article class="match ${f.status==='live'?'playing':''}"><div class="match-date"><b>${escapeHTML(date)}</b><span>${escapeHTML(time)}</span><small>Jornada ${escapeHTML(f.round??'pendiente')}</small></div><div class="match-teams"><div><small>L</small><b>${escapeHTML(teams.get(f.home))}</b></div><div><small>V</small><b>${escapeHTML(teams.get(f.away))}</b></div></div><div class="match-score"><strong>${scored?f.homeScore+'–'+f.awayScore:escapeHTML(time)}</strong><span class="${f.status==='live'?'live':''}">${escapeHTML(status)}</span></div></article>`;
 }
 function render() {
  if(!state.data)return;
@@ -29,9 +57,9 @@ function render() {
  $('title').textContent={day:'Por día',round:'Jornada',table:'Clasificación'}[state.tab];
  $('subtitle').textContent={day:'AGENDA CONFIRMADA',round:'TODA LA COMPETICIÓN',table:'LA CARRERA POR LA LIGA'}[state.tab];
  if(state.tab==='table') {
-  const official=state.data.table?.rows?.length===20;
-  $('explanation').textContent=official?'Clasificación oficial de la Premier League · Consulta: '+new Date(state.data.table.updatedAt).toLocaleString('es-ES',{timeZone:'Europe/Madrid'}):'Clasificación calculada de respaldo: excluye directo y finales provisionales; no aplica sanciones ni todos los desempates.';
-  $('results').innerHTML='<div class="table-wrap"><table><thead><tr>'+['Pos','Equipo','PJ','G','E','P','GF','GC','DG','Pts'].map(x=>'<th scope="col">'+x+'</th>').join('')+'</tr></thead><tbody>'+(official?state.data.table.rows:standings(state.data)).map((t,i)=>`<tr>${[t.position||i+1,t.name,t.p,t.w,t.d,t.l,t.gf,t.ga,t.gf-t.ga,t.pts].map(x=>'<td>'+escapeHTML(x)+'</td>').join('')}</tr>`).join('')+'</tbody></table></div>';return;
+  const view=projectedTable(state.data),official=state.data.table?.rows?.length===20;
+  $('explanation').textContent=view.mode==='provisional'?'🔴 Clasificación provisional con los marcadores actuales. Los equipos afectados están señalados. El orden en empates puede variar al aplicar todos los criterios oficiales.':official?'Clasificación oficial · '+new Date(state.data.table.updatedAt).toLocaleString('es-ES',{timeZone:'Europe/Madrid'})+(view.unavailable?' · Conciliación de directo pendiente de verificar.':''):'Clasificación calculada de respaldo';
+  $('results').innerHTML=`<div class="table-legend"><span class="champion">🏆 Zona alta</span><span class="drop">Descenso</span><span>🔴 En juego · ★ Provisional</span></div><div class="table-wrap"><table><thead><tr>${['Pos','Equipo','Pts','PJ','G','E','P','GF','GC','DG'].map(x=>'<th scope="col">'+x+'</th>').join('')}</tr></thead><tbody>${view.rows.map(t=>`<tr class="${t.position<=4?'top-zone':t.position>=18?'drop-zone':''} ${t.provisional?'provisional-row':''}"><td>${t.position}</td><td><b>${escapeHTML(t.name)}</b>${t.provisional?'<small class="team-live">'+(t.live?'🔴 En juego':'★ Provisional')+' · '+escapeHTML(t.score)+'</small>':''}</td>${[t.pts,t.p,t.w,t.d,t.l,t.gf,t.ga,t.gf-t.ga].map(x=>'<td>'+escapeHTML(x)+'</td>').join('')}</tr>`).join('')}</tbody></table></div>`;return;
  }
  let matches;
  if(state.tab==='day') {
@@ -95,7 +123,7 @@ async function refresh() {
   state.data=data;
   const stale=Date.now()-new Date(data.updatedAt)>180000;
   let live='';
-  if(snapshot){try{live=' · Directo ESPN comprobado '+await refreshLive();}catch(error){live=' · Directo no disponible; marcadores guardados';}}
+  try{live=' · Directo ESPN comprobado '+await refreshLive();}catch(error){live=' · Directo no disponible; marcadores guardados';}
   $('connection').textContent=`${snapshot?'Datos oficiales publicados':stale?'Datos antiguos':'Fuente oficial conectada'} · ${new Date(data.updatedAt).toLocaleString('es-ES',{timeZone:'Europe/Madrid'})}${live}`;
   render();
  }catch(error){$('connection').textContent='Sin conexión con la fuente · '+(state.data?'se conserva la última consulta; el directo puede estar desactualizado.':'no hay datos disponibles.');if(!state.data)$('results').innerHTML='<div class="empty">No se pudo cargar el calendario. Pulsa Actualizar para reintentar.</div>';}
@@ -113,4 +141,4 @@ if(typeof document!=='undefined') {
  $('refresh').addEventListener('click',refresh);refresh();setInterval(()=>{render();refresh();},60000);
  if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 }
-if(typeof module!=='undefined')module.exports={madridDay,eligibleDays,standings,mergeLive};
+if(typeof module!=='undefined')module.exports={madridDay,eligibleDays,standings,mergeLive,projectedTable};

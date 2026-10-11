@@ -1,7 +1,7 @@
 import json
 import unittest
 from unittest.mock import patch
-from update_data import ROOT, normalize
+from update_data import ROOT, normalize, table_baseline
 
 class DataTests(unittest.TestCase):
     def setUp(self):
@@ -31,6 +31,16 @@ class DataTests(unittest.TestCase):
         data = normalize(self.bootstrap, self.fixtures, self.data)
         self.assertEqual(data['fixtures'][0]['round'],self.data['fixtures'][0]['round'])
         self.assertEqual(data['fixtures'][0]['fantasyRound'],20)
+
+    def test_table_baseline_requires_exact_statistics(self):
+        data = {'teams':[{'id':1,'name':'Liverpool'},{'id':2,'name':'Man City'}],
+                'fixtures':[{'id':12,'home':1,'away':2,'kickoff':'2026-10-11T15:30:00Z',
+                             'status':'provisional','homeScore':1,'awayScore':0}]}
+        table = {'rows':[dict(name='Liverpool',p=1,w=1,d=0,l=0,gf=1,ga=0,pts=1),
+                         dict(name='Manchester City',p=1,w=0,d=0,l=1,gf=0,ga=1,pts=0)]}
+        self.assertEqual(table_baseline(table,data),{'12':[1,0]})
+        table['rows'][0]['gf']=2
+        self.assertIsNone(table_baseline(table,data))
 
 if __name__=='__main__':
     unittest.main()

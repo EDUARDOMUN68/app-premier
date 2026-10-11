@@ -15,3 +15,7 @@ El workflow publish.yml ejecuta pruebas, consulta FPL y la tabla oficial, guarda
 En GitHub Pages el cliente utiliza premier.json y consulta el scoreboard diario de ESPN cada 60 segundos. Conciliación por equipos y fecha Madrid, sin cambiar fechas confirmadas ni jornadas y sin sobrescribir finales oficiales; finales de ESPN siguen provisionales. Cada refresco parte de una copia oficial nueva. Si falla el directo, aparece aviso explícito. La tabla oficial se obtiene del endpoint v5 de la web de Premier para competencia 8 y temporada 2026, conservando posiciones y puntos de origen. Su fecha es independiente de la del calendario.
 
 Service worker app-premier-0.2.0, red prioritaria para interfaz, sin interceptar datos ni fuentes externas.
+
+## Versión 0.3.0
+
+Diseño rojo y blanco con filas de partidos y navegación inferior en móvil. table_baseline concilia las estadísticas oficiales con los encuentros finalizados de FPL y registra marcadores incluidos. projectedTable aplica deltas de marcador sobre esa base, mantiene sanciones y recalcula posiciones provisionalmente. No muta las filas originales; cada consulta parte del JSON. ESPN se consulta en local y en publicación cada minuto. Si la base no cuadra se desactiva proyección y se identifica el límite.

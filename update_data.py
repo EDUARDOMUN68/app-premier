@@ -9,7 +9,34 @@ ROOT = Path(__file__).resolve().parent
 API = 'https://fantasy.premierleague.com/api/'
 TABLE_API = 'https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings'
 
-def official_table():
+def team_key(name):
+    aliases = {'manchester city':'man city','manchester united':'man utd','tottenham hotspur':'spurs',
+               'nottingham forest':"nott'm forest",'brighton and hove albion':'brighton',
+               'leeds united':'leeds','newcastle united':'newcastle','afc bournemouth':'bournemouth'}
+    return aliases.get(name.lower(), name.lower())
+
+def table_baseline(table, data):
+    """Solo proyectar directo si los partidos reproducen las estadísticas oficiales."""
+    by_name = {team_key(t['name']):t['id'] for t in data['teams']}
+    rows = {by_name[team_key(r['name'])]:r for r in table['rows']}
+    stats = {key:dict(p=0,w=0,d=0,l=0,gf=0,ga=0) for key in rows}
+    baseline = {}
+    for f in sorted(data['fixtures'], key=lambda f:f.get('kickoff') or '9999'):
+        h,a = f['home'],f['away']
+        hs,aws = f.get('homeScore'),f.get('awayScore')
+        if f['status'] not in ['finished','provisional'] or not isinstance(hs,int) or not isinstance(aws,int):
+            continue
+        if stats[h]['p'] >= rows[h]['p'] or stats[a]['p'] >= rows[a]['p']:
+            continue
+        for key,gf,ga in [(h,hs,aws),(a,aws,hs)]:
+            s=stats[key];s['p']+=1;s['gf']+=gf;s['ga']+=ga
+            s['w' if gf>ga else 'l' if gf<ga else 'd']+=1
+        baseline[str(f['id'])] = [hs,aws]
+    if all(all(stats[key][field]==row[field] for field in stats[key]) for key,row in rows.items()):
+        return baseline
+    return None
+
+def official_table(data):
     with urllib.request.urlopen(TABLE_API, timeout=30) as response:
         payload = json.load(response)
     entries = payload['tables'][0]['entries']
@@ -21,8 +48,10 @@ def official_table():
         rows.append(dict(name=entry['team']['name'], position=stats['position'], p=stats['played'],
                          w=stats['won'], d=stats['drawn'], l=stats['lost'], gf=stats['goalsFor'],
                          ga=stats['goalsAgainst'], pts=stats['points']))
-    return dict(rows=sorted(rows, key=lambda r:r['position']), source=TABLE_API,
-                updatedAt=datetime.now(timezone.utc).isoformat())
+    table = dict(rows=sorted(rows, key=lambda r:r['position']), source=TABLE_API,
+                 updatedAt=datetime.now(timezone.utc).isoformat())
+    table['baseline'] = table_baseline(table, data)
+    return table
 
 def fetch(path):
     request = urllib.request.Request(API + path, headers={'User-Agent': 'AppPremier/0.1'})
@@ -58,7 +87,7 @@ def normalize(bootstrap, fixtures, previous=None):
                             confirmed=bool(kickoff) and f.get('provisional_start_time') is False and matches_confirmation,
                             status=status, minutes=f.get('minutes', 0),
                             homeScore=f.get('team_h_score'), awayScore=f.get('team_a_score')))
-    return dict(version='0.2.1', updatedAt=datetime.now(timezone.utc).isoformat(),
+    return dict(version='0.3.0', updatedAt=datetime.now(timezone.utc).isoformat(),
                 source=API, confirmationSource=confirmation['source'], teams=[dict(id=t['id'], name=t['name'], short=t['short_name']) for t in teams],
                 fixtures=matches, currentRound=next((e['id'] for e in bootstrap['events'] if e.get('is_current')), 1))
 
@@ -67,7 +96,7 @@ def update():
     previous = json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
     result = normalize(fetch('bootstrap-static/'), fetch('fixtures/'), previous)
     try:
-        result['table'] = official_table()
+        result['table'] = official_table(result)
     except Exception:
         if previous and previous.get('table'):
             result['table'] = previous['table']
