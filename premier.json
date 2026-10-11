@@ -1,6 +1,6 @@
 {
   "version": "0.3.4",
-  "updatedAt": "2026-10-11T17:14:37.017001+00:00",
+  "updatedAt": "2026-10-11T17:42:35.166314+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -876,10 +876,11 @@
       "away": 15,
       "kickoff": "2026-10-11T15:30:00Z",
       "confirmed": true,
-      "status": "live",
-      "minutes": 84,
+      "status": "finished",
+      "minutes": 90,
       "homeScore": 0,
-      "awayScore": 3
+      "awayScore": 3,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 54,
@@ -5061,13 +5062,13 @@
       {
         "name": "Manchester City",
         "position": 1,
-        "p": 5,
-        "w": 5,
+        "p": 6,
+        "w": 6,
         "d": 0,
         "l": 0,
-        "gf": 13,
+        "gf": 16,
         "ga": 5,
-        "pts": 15
+        "pts": 18
       },
       {
         "name": "Arsenal",
@@ -5136,25 +5137,25 @@
         "pts": 9
       },
       {
-        "name": "Liverpool",
-        "position": 8,
-        "p": 5,
-        "w": 2,
-        "d": 3,
-        "l": 0,
-        "gf": 7,
-        "ga": 4,
-        "pts": 9
-      },
-      {
         "name": "Hull City",
-        "position": 9,
+        "position": 8,
         "p": 6,
         "w": 2,
         "d": 3,
         "l": 1,
         "gf": 8,
         "ga": 6,
+        "pts": 9
+      },
+      {
+        "name": "Liverpool",
+        "position": 9,
+        "p": 6,
+        "w": 2,
+        "d": 3,
+        "l": 1,
+        "gf": 7,
+        "ga": 7,
         "pts": 9
       },
       {
@@ -5280,7 +5281,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-11T17:14:37.307032+00:00",
+    "updatedAt": "2026-10-11T17:42:35.475673+00:00",
     "baseline": {
       "1": [
         3,
@@ -5513,6 +5514,10 @@
       "56": [
         2,
         2
+      ],
+      "58": [
+        0,
+        3
       ]
     }
   }
