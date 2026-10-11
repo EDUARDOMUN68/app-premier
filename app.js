@@ -102,6 +102,11 @@ async function refresh() {
  finally{state.busy=false;$('refresh').disabled=false;}
 }
 if(typeof document!=='undefined') {
+ let installPrompt=null;
+ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;$('install').hidden=false;});
+ window.addEventListener('appinstalled',()=>{installPrompt=null;$('install').hidden=true;});
+ $('install').addEventListener('click',async()=>{if(!installPrompt)return;await installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;$('install').hidden=true;});
+
  document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{state.tab=b.dataset.tab;state.selected='';render();}));
  $('filter').addEventListener('change',e=>{state.selected=e.target.value;render();});
  $('day-strip').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b){state.selected=b.dataset.day;render();}});

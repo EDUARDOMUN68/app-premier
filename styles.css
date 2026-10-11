@@ -7,3 +7,5 @@
 @media(max-width:600px){.emblem{width:48px;height:56px;padding:5px}.intro{padding-top:25px}}
 
 .match{box-shadow:0 2px 8px #35104f08}#day-strip .active{background:#ebe2f2;font-weight:700}.match-meta{font-size:12px}.status{font-size:11px}footer{font-size:12px}
+
+.header-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}#install{background:#dfcbed;color:#35104f;font-weight:700}

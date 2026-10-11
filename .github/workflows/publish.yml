@@ -46,7 +46,7 @@ jobs:
       - name: Preparar exclusivamente recursos públicos
         run: |
           mkdir -p dist
-          cp index.html app.js styles.css premier.json manifest.webmanifest icon.svg sw.js dist/
+          cp index.html app.js styles.css premier.json manifest.webmanifest icon.svg icon-192.png icon-512.png sw.js dist/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

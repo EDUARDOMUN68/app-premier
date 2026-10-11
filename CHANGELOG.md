@@ -20,3 +20,8 @@
 - Directo ESPN desde el navegador cada minuto para alojamiento estático.
 - Workflow de actualización horaria y publicación GitHub Pages con lista explícita de archivos públicos.
 - Service worker con red prioritaria; los datos no se sirven desde caché.
+
+## 0.2.1 — 2026-10-11
+
+- Iconos PNG 192 y 512 con margen de seguridad para instalación Android.
+- Identidad y ámbito explícitos de APP PREMIER, nombre completo en instalador y nueva caché de interfaz.
