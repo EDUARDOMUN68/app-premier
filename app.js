@@ -139,6 +139,13 @@ if(typeof document!=='undefined') {
  $('filter').addEventListener('change',e=>{state.selected=e.target.value;render();});
  $('day-strip').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b){state.selected=b.dataset.day;render();}});
  $('refresh').addEventListener('click',refresh);refresh();setInterval(()=>{render();refresh();},60000);
- if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+ if('serviceWorker' in navigator) {
+  const hadController=Boolean(navigator.serviceWorker.controller);
+  let reloading=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+   if(hadController&&!reloading){reloading=true;location.reload();}
+  });
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(registration=>registration.update()).catch(()=>{});
+ }
 }
 if(typeof module!=='undefined')module.exports={madridDay,eligibleDays,standings,mergeLive,projectedTable};

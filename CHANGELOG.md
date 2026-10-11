@@ -31,3 +31,9 @@
 - Rediseño rojo y blanco con equipos y marcadores destacados, filas inspiradas en Madridista y navegación inferior móvil.
 - Clasificación provisional con marcadores en directo, equipos señalados y zonas visuales.
 - Base oficial conciliada para evitar duplicados y conservar sanciones; prueba real con Liverpool–Manchester City en juego.
+
+## 0.3.1 — 2026-10-11
+
+- Recursos visuales e iconos versionados para renovar las copias anteriores en móvil.
+- Actualización del service worker sin caché HTTP y recarga automática cuando cambia el controlador de una app abierta.
+- Se conserva la identidad de instalación; el icono del lanzador Android depende de la actualización de Chrome.

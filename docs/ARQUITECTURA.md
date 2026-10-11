@@ -19,3 +19,7 @@ Service worker app-premier-0.2.0, red prioritaria para interfaz, sin interceptar
 ## Versión 0.3.0
 
 Diseño rojo y blanco con filas de partidos y navegación inferior en móvil. table_baseline concilia las estadísticas oficiales con los encuentros finalizados de FPL y registra marcadores incluidos. projectedTable aplica deltas de marcador sobre esa base, mantiene sanciones y recalcula posiciones provisionalmente. No muta las filas originales; cada consulta parte del JSON. ESPN se consulta en local y en publicación cada minuto. Si la base no cuadra se desactiva proyección y se identifica el límite.
+
+## Versión 0.3.1
+
+HTML referencia CSS, JS, león y manifest por URL versionada; el manifest versiona ambos PNG sin cambiar id/scope. El service worker renueva recursos desde red sin caché HTTP y mantiene respaldo sin conexión. Su actualización omite caché de scripts; controllerchange recarga una sola vez si ya había controlador al abrir la página. La primera instalación no provoca recarga.
