@@ -1,5 +1,5 @@
 'use strict';
-const state = {data:null, tab:'day', selected:'', busy:false, published:false};
+const state = {data:null, tab:'day', selected:'', busy:false, resumePending:false, published:false};
 const $ = id => document.getElementById(id);
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function madridDay(value = new Date()) {return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(value));}
@@ -149,7 +149,7 @@ async function refresh() {
   $('connection').textContent=`${snapshot?'Datos oficiales publicados':stale?'Datos antiguos':'Fuente oficial conectada'} · ${new Date(data.updatedAt).toLocaleString('es-ES',{timeZone:'Europe/Madrid'})}${live}`;
   render();
  }catch(error){$('connection').textContent='Sin conexión con la fuente · '+(state.data?'se conserva la última consulta; el directo puede estar desactualizado.':'no hay datos disponibles.');if(!state.data)$('results').innerHTML='<div class="empty">No se pudo cargar el calendario. Pulsa Actualizar para reintentar.</div>';}
- finally{state.busy=false;$('refresh').disabled=false;}
+ finally{state.busy=false;$('refresh').disabled=false;if(state.resumePending){state.resumePending=false;refresh();}}
 }
 if(typeof document!=='undefined') {
  let installPrompt=null;
@@ -160,6 +160,15 @@ if(typeof document!=='undefined') {
  document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{state.tab=b.dataset.tab;state.selected='';render();}));
  $('filter').addEventListener('change',e=>{state.selected=e.target.value;render();});
  $('day-strip').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b){state.selected=b.dataset.day;render();}});
+ let lastResume=0;
+ const resume=()=>{
+  if(document.visibilityState==='hidden')return;
+  const now=Date.now();if(now-lastResume<1000)return;lastResume=now;
+  render();if(state.busy)state.resumePending=true;else refresh();
+ };
+ document.addEventListener('visibilitychange',resume);
+ window.addEventListener('pageshow',resume);
+ window.addEventListener('focus',resume);
  $('refresh').addEventListener('click',refresh);refresh();setInterval(()=>{render();refresh();},60000);
  if('serviceWorker' in navigator) {
   const hadController=Boolean(navigator.serviceWorker.controller);

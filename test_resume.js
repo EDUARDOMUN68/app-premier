@@ -1,0 +1,15 @@
+const vm=require('node:vm'),fs=require('node:fs');
+const calls=[],docEvents={},winEvents={},nodes=new Map();
+const document={visibilityState:'hidden',getElementById(id){if(!nodes.has(id))nodes.set(id,{addEventListener(){},disabled:false,innerHTML:''});return nodes.get(id);},querySelectorAll(){return [];},addEventListener(name,cb){docEvents[name]=cb;}};
+const context={document,window:{addEventListener(name,cb){winEvents[name]=cb;}},navigator:{},fetch(url){calls.push(url);return new Promise(()=>{});},setInterval(){},AbortSignal,Date,Intl,console,module:{exports:{}}};
+vm.createContext(context);vm.runInContext(fs.readFileSync('app.js','utf8'),context);
+if(calls.length!==1)throw Error('Consulta inicial');
+docEvents.visibilitychange();
+if(vm.runInContext('state.resumePending',context))throw Error('No consultar oculto');
+document.visibilityState='visible';docEvents.visibilitychange();winEvents.focus();
+if(!vm.runInContext('state.resumePending',context))throw Error('Falta consulta al volver con solicitud en curso');
+vm.runInContext('state.busy=false;state.resumePending=false',context);
+context.Date=class extends Date {static now(){return Date.now()+2000;}};
+winEvents.pageshow();
+if(calls.length!==2)throw Error('Falta consulta al restaurar');
+console.log('Correcto: volver visible y restaurar consultan; oculto no; consulta pendiente conservada.');

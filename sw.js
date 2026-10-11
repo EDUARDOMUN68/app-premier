@@ -1,5 +1,5 @@
-const CACHE='app-premier-0.3.3';
-const ASSETS=['./','index.html','styles.css?v=0.3.3','app.js?v=0.3.3','icon.svg?v=0.3.3','icon-192.png?v=0.3.3','icon-512.png?v=0.3.3','manifest.webmanifest?v=0.3.3'];
+const CACHE='app-premier-0.3.4';
+const ASSETS=['./','index.html','styles.css?v=0.3.4','app.js?v=0.3.4','icon.svg?v=0.3.4','icon-192.png?v=0.3.4','icon-512.png?v=0.3.4','manifest.webmanifest?v=0.3.4'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('app-premier-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{

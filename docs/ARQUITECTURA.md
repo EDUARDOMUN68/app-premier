@@ -27,3 +27,5 @@ HTML referencia CSS, JS, león y manifest por URL versionada; el manifest versio
 0.3.2: mergeLive prioriza STATUS_HALFTIME sobre displayClock; las filas muestran HT sin apóstrofo.
 
 0.3.3: tableBadge encuentra encuentros vivos por ID de equipo, muestra marcador en orden local–visitante y puntos de cada equipo. qualificationZone usa distribución base con 6/7 condicionales explícitos. Referencia: https://www.premierleague.com/en/european-qualification-explained.
+
+0.3.4: visibilitychange visible, focus y pageshow disparan refresh con ventana de 1 segundo. Si busy, resumePending garantiza una consulta posterior. confirm_table_results solo se ejecuta tras official_table correcto; promueve provisional si ID y marcador coinciden con baseline exacta. No confirma por antigüedad ni con tabla de respaldo.

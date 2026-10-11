@@ -30,6 +30,7 @@ jobs:
         run: |
           node --check app.js
           node test_app.js
+          node test_resume.js
           python -m unittest -v
       - name: Consultar fuentes oficiales
         run: python update_data.py

@@ -1,7 +1,7 @@
 import json
 import unittest
 from unittest.mock import patch
-from update_data import ROOT, normalize, table_baseline
+from update_data import ROOT, normalize, table_baseline, confirm_table_results
 
 class DataTests(unittest.TestCase):
     def setUp(self):
@@ -41,6 +41,16 @@ class DataTests(unittest.TestCase):
         self.assertEqual(table_baseline(table,data),{'12':[1,0]})
         table['rows'][0]['gf']=2
         self.assertIsNone(table_baseline(table,data))
+
+    def test_final_confirmed_only_with_matching_official_baseline(self):
+        fixture = dict(id=1,status='provisional',homeScore=2,awayScore=1)
+        data = dict(fixtures=[fixture],table=dict(baseline={'1':[2,1]}))
+        confirm_table_results(data)
+        self.assertEqual(fixture['status'],'finished')
+        for status,baseline in [('live',{'1':[2,1]}),('provisional',None),('provisional',{'1':[1,1]}),('provisional',{})]:
+            fixture['status']=status;data['table']['baseline']=baseline
+            confirm_table_results(data)
+            self.assertEqual(fixture['status'],status)
 
 if __name__=='__main__':
     unittest.main()

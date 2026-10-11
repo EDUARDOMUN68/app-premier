@@ -47,3 +47,8 @@
 - Clasificación con paleta y símbolos de Madridista: zonas azul/dorado/violeta/rojo claro, insignias verde/amarillo/rojo y casa/avión.
 - Minuto o HT, marcador y puntos del encuentro en cada equipo en juego, independientemente de la conciliación de la tabla.
 - Plazas 6 y 7 identificadas con asterisco como posibles por copas, no confirmadas.
+
+## 0.3.4 — 2026-10-11
+
+- Consulta inmediata al volver al primer plano, recuperar foco o restaurar la página; agrupa eventos duplicados y repite si había una consulta en curso.
+- Finales provisionales de FPL pasan a Finalizado al conciliar su marcador con una clasificación oficial recién consultada. Se conservan avisos si falla la conciliación o la fuente.
