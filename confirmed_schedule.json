@@ -1,0 +1,286 @@
+{
+  "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+  "verifiedOn": "2026-10-11",
+  "fixtures": [
+    {
+      "id": 51,
+      "home": 1,
+      "away": 13,
+      "kickoff": "2026-10-10T11:30:00Z",
+      "round": 6
+    },
+    {
+      "id": 52,
+      "home": 2,
+      "away": 4,
+      "kickoff": "2026-10-10T14:00:00Z",
+      "round": 6
+    },
+    {
+      "id": 53,
+      "home": 6,
+      "away": 3,
+      "kickoff": "2026-10-10T14:00:00Z",
+      "round": 6
+    },
+    {
+      "id": 57,
+      "home": 12,
+      "away": 10,
+      "kickoff": "2026-10-10T14:00:00Z",
+      "round": 6
+    },
+    {
+      "id": 60,
+      "home": 20,
+      "away": 5,
+      "kickoff": "2026-10-10T14:00:00Z",
+      "round": 6
+    },
+    {
+      "id": 59,
+      "home": 16,
+      "away": 19,
+      "kickoff": "2026-10-10T16:30:00Z",
+      "round": 6
+    },
+    {
+      "id": 55,
+      "home": 8,
+      "away": 18,
+      "kickoff": "2026-10-11T13:00:00Z",
+      "round": 6
+    },
+    {
+      "id": 56,
+      "home": 11,
+      "away": 9,
+      "kickoff": "2026-10-11T13:00:00Z",
+      "round": 6
+    },
+    {
+      "id": 58,
+      "home": 14,
+      "away": 15,
+      "kickoff": "2026-10-11T15:30:00Z",
+      "round": 6
+    },
+    {
+      "id": 54,
+      "home": 7,
+      "away": 17,
+      "kickoff": "2026-10-12T19:00:00Z",
+      "round": 6
+    },
+    {
+      "id": 64,
+      "home": 9,
+      "away": 6,
+      "kickoff": "2026-10-17T11:30:00Z",
+      "round": 7
+    },
+    {
+      "id": 62,
+      "home": 4,
+      "away": 14,
+      "kickoff": "2026-10-17T14:00:00Z",
+      "round": 7
+    },
+    {
+      "id": 65,
+      "home": 10,
+      "away": 11,
+      "kickoff": "2026-10-17T14:00:00Z",
+      "round": 7
+    },
+    {
+      "id": 67,
+      "home": 15,
+      "away": 12,
+      "kickoff": "2026-10-17T14:00:00Z",
+      "round": 7
+    },
+    {
+      "id": 68,
+      "home": 17,
+      "away": 2,
+      "kickoff": "2026-10-17T16:30:00Z",
+      "round": 7
+    },
+    {
+      "id": 61,
+      "home": 3,
+      "away": 20,
+      "kickoff": "2026-10-18T13:00:00Z",
+      "round": 7
+    },
+    {
+      "id": 63,
+      "home": 5,
+      "away": 8,
+      "kickoff": "2026-10-18T13:00:00Z",
+      "round": 7
+    },
+    {
+      "id": 66,
+      "home": 13,
+      "away": 16,
+      "kickoff": "2026-10-18T13:00:00Z",
+      "round": 7
+    },
+    {
+      "id": 69,
+      "home": 18,
+      "away": 1,
+      "kickoff": "2026-10-18T15:30:00Z",
+      "round": 7
+    },
+    {
+      "id": 70,
+      "home": 19,
+      "away": 7,
+      "kickoff": "2026-10-19T19:00:00Z",
+      "round": 7
+    },
+    {
+      "id": 77,
+      "home": 12,
+      "away": 18,
+      "kickoff": "2026-10-23T19:00:00Z",
+      "round": 8
+    },
+    {
+      "id": 72,
+      "home": 2,
+      "away": 15,
+      "kickoff": "2026-10-24T11:30:00Z",
+      "round": 8
+    },
+    {
+      "id": 71,
+      "home": 1,
+      "away": 9,
+      "kickoff": "2026-10-24T14:00:00Z",
+      "round": 8
+    },
+    {
+      "id": 74,
+      "home": 7,
+      "away": 10,
+      "kickoff": "2026-10-24T14:00:00Z",
+      "round": 8
+    },
+    {
+      "id": 73,
+      "home": 6,
+      "away": 19,
+      "kickoff": "2026-10-24T16:30:00Z",
+      "round": 8
+    },
+    {
+      "id": 75,
+      "home": 8,
+      "away": 17,
+      "kickoff": "2026-10-25T14:00:00Z",
+      "round": 8
+    },
+    {
+      "id": 76,
+      "home": 11,
+      "away": 4,
+      "kickoff": "2026-10-25T14:00:00Z",
+      "round": 8
+    },
+    {
+      "id": 78,
+      "home": 14,
+      "away": 5,
+      "kickoff": "2026-10-25T14:00:00Z",
+      "round": 8
+    },
+    {
+      "id": 79,
+      "home": 16,
+      "away": 3,
+      "kickoff": "2026-10-25T14:00:00Z",
+      "round": 8
+    },
+    {
+      "id": 80,
+      "home": 20,
+      "away": 13,
+      "kickoff": "2026-10-25T16:30:00Z",
+      "round": 8
+    },
+    {
+      "id": 84,
+      "home": 6,
+      "away": 16,
+      "kickoff": "2026-10-31T12:30:00Z",
+      "round": 9
+    },
+    {
+      "id": 82,
+      "home": 3,
+      "away": 13,
+      "kickoff": "2026-10-31T15:00:00Z",
+      "round": 9
+    },
+    {
+      "id": 83,
+      "home": 4,
+      "away": 18,
+      "kickoff": "2026-10-31T15:00:00Z",
+      "round": 9
+    },
+    {
+      "id": 85,
+      "home": 7,
+      "away": 20,
+      "kickoff": "2026-10-31T15:00:00Z",
+      "round": 9
+    },
+    {
+      "id": 86,
+      "home": 11,
+      "away": 12,
+      "kickoff": "2026-10-31T15:00:00Z",
+      "round": 9
+    },
+    {
+      "id": 88,
+      "home": 15,
+      "away": 5,
+      "kickoff": "2026-10-31T15:00:00Z",
+      "round": 9
+    },
+    {
+      "id": 90,
+      "home": 19,
+      "away": 8,
+      "kickoff": "2026-10-31T17:30:00Z",
+      "round": 9
+    },
+    {
+      "id": 81,
+      "home": 2,
+      "away": 10,
+      "kickoff": "2026-10-31T20:00:00Z",
+      "round": 9
+    },
+    {
+      "id": 87,
+      "home": 14,
+      "away": 1,
+      "kickoff": "2026-11-01T16:30:00Z",
+      "round": 9
+    },
+    {
+      "id": 89,
+      "home": 17,
+      "away": 9,
+      "kickoff": "2026-11-02T20:00:00Z",
+      "round": 9
+    }
+  ]
+}

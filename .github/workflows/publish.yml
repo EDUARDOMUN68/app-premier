@@ -1,0 +1,55 @@
+name: Actualizar y publicar APP PREMIER
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: premier-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verificar lógica
+        run: |
+          node --check app.js
+          node test_app.js
+          python -m unittest -v
+      - name: Consultar fuentes oficiales
+        run: python update_data.py
+      - name: Guardar datos actualizados
+        run: |
+          if ! git diff --quiet -- premier.json; then
+            git config user.name "Premier Bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add premier.json
+            git commit -m "Actualiza datos oficiales de Premier League"
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - name: Preparar exclusivamente recursos públicos
+        run: |
+          mkdir -p dist
+          cp index.html app.js styles.css premier.json manifest.webmanifest icon.svg sw.js dist/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
