@@ -41,6 +41,28 @@ function projectedTable(data) {
  rows.forEach((r,i)=>r.position=i+1);
  return {rows,changed,mode:changed?'provisional':'official'};
 }
+function qualificationZone(position) {
+ if(position<=4)return 'ucl';
+ if(position===5||position===6)return 'uel';
+ if(position===7)return 'uecl';
+ return position>=18?'drop':'';
+}
+function tableBadge(data,row) {
+ const team=data.teams.find(t=>teamKey(t.name)===teamKey(row.name));
+ const match=team&&data.fixtures.find(f=>f.status==='live'&&(f.home===team.id||f.away===team.id));
+ if(match){
+  const home=match.home===team.id,gf=home?match.homeScore:match.awayScore,ga=home?match.awayScore:match.homeScore;
+  const outcome=gf>ga?'win':gf<ga?'loss':'draw',points=gf>ga?3:gf<ga?0:1;
+  const label=match.minutes==='HT'?'HT':match.minutes?match.minutes+'′':'En juego';
+  return `<span class="match-mini ${outcome}"><i class="state-dot"></i><span title="${home?'Local':'Visitante'}">${home?'🏠':'✈️'}</span><b>${escapeHTML(label)}</b><span class="mini-score">${match.homeScore}–${match.awayScore}</span><span class="mini-points">+${points}</span></span>`;
+ }
+ return row.provisional?`<span class="prov-badge pending-official">FINAL · ${escapeHTML(row.score)}</span>`:'';
+}
+function tableHTML(data,view) {
+ const legend='<div class="zone-legend"><span class="zone-item"><i class="zone-dot dot-ucl"></i>Champions</span><span class="zone-item"><i class="zone-dot dot-uel"></i>Europa League</span><span class="zone-item"><i class="zone-dot dot-uecl"></i>Conference League</span><span class="zone-item"><i class="zone-dot dot-drop"></i>Descenso</span></div>';
+ const note='<p class="zone-note">1.º–4.º Champions · 5.º Europa League. 6.º Europa y 7.º Conference son posibles plazas por las copas, aún por decidir. Pueden variar por FA Cup, EFL Cup y cupos UEFA adicionales.</p>';
+ return legend+note+`<div class="table-wrap"><table><thead><tr>${['Pos','Equipo','Pts','PJ','G','E','P','GF','GC','DG'].map(x=>'<th scope="col">'+x+'</th>').join('')}</tr></thead><tbody>${view.rows.map(t=>`<tr class="zone-${qualificationZone(t.position)} ${t.provisional?'provisional-row':''}"><td>${t.position}${t.position===6||t.position===7?'*':''}</td><td><b>${escapeHTML(t.name)}</b>${tableBadge(data,t)}</td>${[t.pts,t.p,t.w,t.d,t.l,t.gf,t.ga,t.gf-t.ga].map(x=>'<td>'+escapeHTML(x)+'</td>').join('')}</tr>`).join('')}</tbody></table></div>`;
+}
 function matchHTML(f) {
  const teams=new Map(state.data.teams.map(t=>[t.id,t.name]));
  const time=f.confirmed&&f.kickoff?new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}).format(new Date(f.kickoff)):'Por confirmar';
@@ -59,7 +81,7 @@ function render() {
  if(state.tab==='table') {
   const view=projectedTable(state.data),official=state.data.table?.rows?.length===20;
   $('explanation').textContent=view.mode==='provisional'?'🔴 Clasificación provisional con los marcadores actuales. Los equipos afectados están señalados. El orden en empates puede variar al aplicar todos los criterios oficiales.':official?'Clasificación oficial · '+new Date(state.data.table.updatedAt).toLocaleString('es-ES',{timeZone:'Europe/Madrid'})+(view.unavailable?' · Conciliación de directo pendiente de verificar.':''):'Clasificación calculada de respaldo';
-  $('results').innerHTML=`<div class="table-legend"><span class="champion">🏆 Zona alta</span><span class="drop">Descenso</span><span>🔴 En juego · ★ Provisional</span></div><div class="table-wrap"><table><thead><tr>${['Pos','Equipo','Pts','PJ','G','E','P','GF','GC','DG'].map(x=>'<th scope="col">'+x+'</th>').join('')}</tr></thead><tbody>${view.rows.map(t=>`<tr class="${t.position<=4?'top-zone':t.position>=18?'drop-zone':''} ${t.provisional?'provisional-row':''}"><td>${t.position}</td><td><b>${escapeHTML(t.name)}</b>${t.provisional?'<small class="team-live">'+(t.live?'🔴 En juego':'★ Provisional')+' · '+escapeHTML(t.score)+'</small>':''}</td>${[t.pts,t.p,t.w,t.d,t.l,t.gf,t.ga,t.gf-t.ga].map(x=>'<td>'+escapeHTML(x)+'</td>').join('')}</tr>`).join('')}</tbody></table></div>`;return;
+  $('results').innerHTML=tableHTML(state.data,view);return;
  }
  let matches;
  if(state.tab==='day') {
@@ -148,4 +170,4 @@ if(typeof document!=='undefined') {
   navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(registration=>registration.update()).catch(()=>{});
  }
 }
-if(typeof module!=='undefined')module.exports={madridDay,eligibleDays,standings,mergeLive,projectedTable};
+if(typeof module!=='undefined')module.exports={madridDay,eligibleDays,standings,mergeLive,projectedTable,tableBadge,qualificationZone,tableHTML};

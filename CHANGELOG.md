@@ -41,3 +41,9 @@
 ## 0.3.2 — 2026-10-11
 
 - En el descanso se muestra HT, usando STATUS_HALFTIME de ESPN aunque el reloj siga en 45+1. Al reanudar vuelve el minuto.
+
+## 0.3.3 — 2026-10-11
+
+- Clasificación con paleta y símbolos de Madridista: zonas azul/dorado/violeta/rojo claro, insignias verde/amarillo/rojo y casa/avión.
+- Minuto o HT, marcador y puntos del encuentro en cada equipo en juego, independientemente de la conciliación de la tabla.
+- Plazas 6 y 7 identificadas con asterisco como posibles por copas, no confirmadas.

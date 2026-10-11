@@ -38,3 +38,15 @@ assert.equal(mergeLive(breakData,[breakEvent]),1);assert.equal(breakData.fixture
 breakEvent.competitions[0].status={displayClock:"46'",type:{state:'in',name:'STATUS_IN_PROGRESS'}};
 mergeLive(breakData,[breakEvent]);assert.equal(breakData.fixtures[0].minutes,'46');
 console.log('Correcto: HT en descanso y minuto al reanudar.');
+
+const {tableBadge,qualificationZone,tableHTML}=require('./app.js');
+breakEvent.competitions[0].status={displayClock:"45'+1'",type:{state:'in',name:'STATUS_HALFTIME'}};
+mergeLive(breakData,[breakEvent]);
+assert.match(tableBadge(breakData,{name:'Liverpool'}),/🏠.*HT.*0–0.*\+1/);
+assert.match(tableBadge(breakData,{name:'Man City'}),/✈️.*HT/);
+breakData.fixtures[0].homeScore=2;
+assert.match(tableBadge(breakData,{name:'Liverpool'}),/match-mini win.*\+3/);
+assert.match(tableBadge(breakData,{name:'Man City'}),/match-mini loss.*\+0/);
+assert.equal(qualificationZone(4),'ucl');assert.equal(qualificationZone(5),'uel');assert.equal(qualificationZone(7),'uecl');assert.equal(qualificationZone(18),'drop');assert.equal(qualificationZone(10),'');
+assert.match(tableHTML(breakData,{rows:[{name:'Liverpool',position:6}]}),/6\*.*🏠/);
+console.log('Correcto: insignias local/visitante, HT, marcador, puntos y zonas.');

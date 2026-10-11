@@ -25,3 +25,5 @@ Diseño rojo y blanco con filas de partidos y navegación inferior en móvil. ta
 HTML referencia CSS, JS, león y manifest por URL versionada; el manifest versiona ambos PNG sin cambiar id/scope. El service worker renueva recursos desde red sin caché HTTP y mantiene respaldo sin conexión. Su actualización omite caché de scripts; controllerchange recarga una sola vez si ya había controlador al abrir la página. La primera instalación no provoca recarga.
 
 0.3.2: mergeLive prioriza STATUS_HALFTIME sobre displayClock; las filas muestran HT sin apóstrofo.
+
+0.3.3: tableBadge encuentra encuentros vivos por ID de equipo, muestra marcador en orden local–visitante y puntos de cada equipo. qualificationZone usa distribución base con 6/7 condicionales explícitos. Referencia: https://www.premierleague.com/en/european-qualification-explained.
