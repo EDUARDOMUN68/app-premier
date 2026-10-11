@@ -1,6 +1,6 @@
 {
-  "version": "0.3.0",
-  "updatedAt": "2026-10-11T16:36:21.492767+00:00",
+  "version": "0.3.4",
+  "updatedAt": "2026-10-11T17:14:37.017001+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -764,10 +764,11 @@
       "away": 13,
       "kickoff": "2026-10-10T11:30:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 1
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 52,
@@ -777,10 +778,11 @@
       "away": 4,
       "kickoff": "2026-10-10T14:00:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 2
+      "awayScore": 2,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 53,
@@ -790,10 +792,11 @@
       "away": 3,
       "kickoff": "2026-10-10T14:00:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 5,
-      "awayScore": 1
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 57,
@@ -803,10 +806,11 @@
       "away": 10,
       "kickoff": "2026-10-10T14:00:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 1
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 60,
@@ -816,10 +820,11 @@
       "away": 5,
       "kickoff": "2026-10-10T14:00:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 0,
-      "awayScore": 2
+      "awayScore": 2,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 59,
@@ -829,10 +834,11 @@
       "away": 19,
       "kickoff": "2026-10-10T16:30:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 1,
-      "awayScore": 1
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 55,
@@ -842,10 +848,11 @@
       "away": 18,
       "kickoff": "2026-10-11T13:00:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 3,
-      "awayScore": 1
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 56,
@@ -855,10 +862,11 @@
       "away": 9,
       "kickoff": "2026-10-11T13:00:00Z",
       "confirmed": true,
-      "status": "provisional",
+      "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 2
+      "awayScore": 2,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 58,
@@ -869,9 +877,9 @@
       "kickoff": "2026-10-11T15:30:00Z",
       "confirmed": true,
       "status": "live",
-      "minutes": 45,
+      "minutes": 84,
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 3
     },
     {
       "id": 54,
@@ -5272,7 +5280,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-11T16:36:21.763605+00:00",
+    "updatedAt": "2026-10-11T17:14:37.307032+00:00",
     "baseline": {
       "1": [
         3,
