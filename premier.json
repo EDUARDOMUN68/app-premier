@@ -1,6 +1,6 @@
 {
   "version": "0.3.4",
-  "updatedAt": "2026-10-13T02:04:46.661298+00:00",
+  "updatedAt": "2026-10-13T09:30:53.505831+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -767,8 +767,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 1,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 1
     },
     {
       "id": 52,
@@ -781,8 +780,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 2,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 2
     },
     {
       "id": 53,
@@ -795,8 +793,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 5,
-      "awayScore": 1,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 1
     },
     {
       "id": 57,
@@ -809,8 +806,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 1,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 1
     },
     {
       "id": 60,
@@ -823,8 +819,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 0,
-      "awayScore": 2,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 2
     },
     {
       "id": 59,
@@ -837,8 +832,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 1,
-      "awayScore": 1,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 1
     },
     {
       "id": 55,
@@ -851,8 +845,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 3,
-      "awayScore": 1,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 1
     },
     {
       "id": 56,
@@ -865,8 +858,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 2,
-      "awayScore": 2,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 2
     },
     {
       "id": 58,
@@ -879,8 +871,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 0,
-      "awayScore": 3,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 3
     },
     {
       "id": 54,
@@ -893,8 +884,7 @@
       "status": "finished",
       "minutes": 90,
       "homeScore": 4,
-      "awayScore": 1,
-      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
+      "awayScore": 1
     },
     {
       "id": 64,
@@ -5282,7 +5272,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-13T02:04:46.958297+00:00",
+    "updatedAt": "2026-10-13T09:30:53.992870+00:00",
     "baseline": {
       "1": [
         3,
