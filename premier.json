@@ -1,6 +1,6 @@
 {
   "version": "0.3.4",
-  "updatedAt": "2026-10-12T19:51:14.106075+00:00",
+  "updatedAt": "2026-10-13T02:04:46.661298+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -890,10 +890,11 @@
       "away": 17,
       "kickoff": "2026-10-12T19:00:00Z",
       "confirmed": true,
-      "status": "live",
-      "minutes": 45,
-      "homeScore": 1,
-      "awayScore": 0
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 4,
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 64,
@@ -5172,12 +5173,12 @@
       {
         "name": "Newcastle United",
         "position": 11,
-        "p": 5,
+        "p": 6,
         "w": 2,
         "d": 2,
-        "l": 1,
-        "gf": 9,
-        "ga": 9,
+        "l": 2,
+        "gf": 10,
+        "ga": 13,
         "pts": 8
       },
       {
@@ -5203,8 +5204,19 @@
         "pts": 6
       },
       {
-        "name": "Nottingham Forest",
+        "name": "Coventry City",
         "position": 14,
+        "p": 6,
+        "w": 2,
+        "d": 0,
+        "l": 4,
+        "gf": 5,
+        "ga": 11,
+        "pts": 6
+      },
+      {
+        "name": "Nottingham Forest",
+        "position": 15,
         "p": 6,
         "w": 1,
         "d": 2,
@@ -5215,7 +5227,7 @@
       },
       {
         "name": "Aston Villa",
-        "position": 15,
+        "position": 16,
         "p": 6,
         "w": 1,
         "d": 2,
@@ -5226,7 +5238,7 @@
       },
       {
         "name": "Sunderland",
-        "position": 16,
+        "position": 17,
         "p": 6,
         "w": 1,
         "d": 1,
@@ -5237,7 +5249,7 @@
       },
       {
         "name": "Bournemouth",
-        "position": 17,
+        "position": 18,
         "p": 6,
         "w": 0,
         "d": 3,
@@ -5248,24 +5260,13 @@
       },
       {
         "name": "Tottenham Hotspur",
-        "position": 18,
+        "position": 19,
         "p": 6,
         "w": 0,
         "d": 3,
         "l": 3,
         "gf": 3,
         "ga": 9,
-        "pts": 3
-      },
-      {
-        "name": "Coventry City",
-        "position": 19,
-        "p": 5,
-        "w": 1,
-        "d": 0,
-        "l": 4,
-        "gf": 1,
-        "ga": 10,
         "pts": 3
       },
       {
@@ -5281,7 +5282,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-12T19:51:14.395606+00:00",
+    "updatedAt": "2026-10-13T02:04:46.958297+00:00",
     "baseline": {
       "1": [
         3,
@@ -5518,6 +5519,10 @@
       "58": [
         0,
         3
+      ],
+      "54": [
+        4,
+        1
       ]
     }
   }
