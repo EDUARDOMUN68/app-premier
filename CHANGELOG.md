@@ -52,3 +52,9 @@
 
 - Consulta inmediata al volver al primer plano, recuperar foco o restaurar la página; agrupa eventos duplicados y repite si había una consulta en curso.
 - Finales provisionales de FPL pasan a Finalizado al conciliar su marcador con una clasificación oficial recién consultada. Se conservan avisos si falla la conciliación o la fuente.
+
+## 0.4.0 — 2026-10-17
+
+- Detalle de partido desde Jornada y Por día: Alineaciones, Resumen y Estadísticas como Madridista.
+- Titulares, suplentes, formación, goles, asistencias, tarjetas y cambios cuando ESPN los proporciona.
+- Consulta bajo demanda, refresco cada minuto, pausa en segundo plano, cierre y reintento accesibles.

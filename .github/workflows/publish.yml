@@ -31,6 +31,8 @@ jobs:
           node --check app.js
           node test_app.js
           node test_resume.js
+          node test_match_detail.cjs
+          node test_match_lifecycle.cjs
           python -m unittest -v
       - name: Consultar fuentes oficiales
         run: python update_data.py
@@ -47,7 +49,7 @@ jobs:
       - name: Preparar exclusivamente recursos públicos
         run: |
           mkdir -p dist
-          cp index.html app.js styles.css premier.json manifest.webmanifest icon.svg icon-192.png icon-512.png sw.js dist/
+          cp index.html app.js styles.css match-detail.js match-detail.css premier.json manifest.webmanifest icon.svg icon-192.png icon-512.png sw.js dist/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

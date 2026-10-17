@@ -31,7 +31,7 @@ class Handler(SimpleHTTPRequestHandler):
             self.wfile.write(data)
             return
         # Servir únicamente recursos públicos de la aplicación.
-        if self.path.split('?')[0] not in ['/', '/index.html', '/app.js', '/styles.css', '/premier.json', '/manifest.webmanifest', '/icon.svg', '/sw.js', '/icon-192.png', '/icon-512.png']:
+        if self.path.split('?')[0] not in ['/', '/index.html', '/app.js', '/match-detail.js', '/match-detail.css', '/styles.css', '/premier.json', '/manifest.webmanifest', '/icon.svg', '/sw.js', '/icon-192.png', '/icon-512.png']:
             self.send_error(404)
             return
         super().do_GET()

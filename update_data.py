@@ -99,7 +99,7 @@ def normalize(bootstrap, fixtures, previous=None):
                             confirmed=bool(kickoff) and f.get('provisional_start_time') is False and matches_confirmation,
                             status=status, minutes=f.get('minutes', 0),
                             homeScore=f.get('team_h_score'), awayScore=f.get('team_a_score')))
-    return dict(version='0.3.4', updatedAt=datetime.now(timezone.utc).isoformat(),
+    return dict(version='0.4.0', updatedAt=datetime.now(timezone.utc).isoformat(),
                 source=API, confirmationSource=confirmation['source'], teams=[dict(id=t['id'], name=t['name'], short=t['short_name']) for t in teams],
                 fixtures=matches, currentRound=next((e['id'] for e in bootstrap['events'] if e.get('is_current')), 1))
 

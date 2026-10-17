@@ -69,7 +69,7 @@ function matchHTML(f) {
  const scored=['finished','live','provisional'].includes(f.status)&&Number.isInteger(f.homeScore)&&Number.isInteger(f.awayScore);
  const status={finished:'Finalizado',live:'🔴 '+(f.minutes==='HT'?'HT':f.minutes+'′'),provisional:'Final provisional',scheduled:f.confirmed?'Programado':'Fecha pendiente'}[f.status];
  const date=f.confirmed&&f.kickoff?dayLabel(madridDay(f.kickoff)):'Sin fecha confirmada';
- return `<article class="match ${f.status==='live'?'playing':''}"><div class="match-date"><b>${escapeHTML(date)}</b><span>${escapeHTML(time)}</span><small>Jornada ${escapeHTML(f.round??'pendiente')}</small></div><div class="match-teams"><div><small>L</small><b>${escapeHTML(teams.get(f.home))}</b></div><div><small>V</small><b>${escapeHTML(teams.get(f.away))}</b></div></div><div class="match-score"><strong>${scored?f.homeScore+'–'+f.awayScore:escapeHTML(time)}</strong><span class="${f.status==='live'?'live':''}">${escapeHTML(status)}</span></div></article>`;
+ return `<article class="match ${f.status==='live'?'playing':''}" data-match-id="${f.id}" role="button" tabindex="0" aria-label="Ver detalle: ${escapeHTML(teams.get(f.home))} contra ${escapeHTML(teams.get(f.away))}"><div class="match-date"><b>${escapeHTML(date)}</b><span>${escapeHTML(time)}</span><small>Jornada ${escapeHTML(f.round??'pendiente')}</small></div><div class="match-teams"><div><small>L</small><b>${escapeHTML(teams.get(f.home))}</b></div><div><small>V</small><b>${escapeHTML(teams.get(f.away))}</b></div></div><div class="match-score"><strong>${scored?f.homeScore+'–'+f.awayScore:escapeHTML(time)}</strong><span class="${f.status==='live'?'live':''}">${escapeHTML(status)}</span><small class="detail-hint">Ver detalle ›</small></div></article>`;
 }
 function render() {
  if(!state.data)return;
@@ -160,6 +160,16 @@ if(typeof document!=='undefined') {
  document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{state.tab=b.dataset.tab;state.selected='';render();}));
  $('filter').addEventListener('change',e=>{state.selected=e.target.value;render();});
  $('day-strip').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b){state.selected=b.dataset.day;render();}});
+ window.premierSame=(a,b)=>Boolean(a&&b)&&teamKey(a)===teamKey(b);
+ const openDetail=event=>{
+  const row=event.target.closest('[data-match-id]');if(!row)return;
+  const f=state.data?.fixtures.find(m=>String(m.id)===row.dataset.matchId);
+  if(!f)return;
+  const teams=new Map(state.data.teams.map(t=>[t.id,t.name]));
+  window.openMatchDetail?.({competition:'Premier',home:teams.get(f.home),away:teams.get(f.away),date:f.kickoff?madridDay(f.kickoff):'',status:f.status,score:Number.isInteger(f.homeScore)&&Number.isInteger(f.awayScore)?f.homeScore+'–'+f.awayScore:null});
+ };
+ $('results').addEventListener('click',openDetail);
+ $('results').addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)&&event.target.closest('[data-match-id]')){event.preventDefault();openDetail(event);}});
  let lastResume=0;
  const resume=()=>{
   if(document.visibilityState==='hidden')return;

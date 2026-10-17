@@ -1,6 +1,6 @@
 # APP PREMIER
 
-Versión 0.3.4. Aplicación en español de la Premier League, adaptada a móvil y escritorio.
+Versión 0.4.0. Aplicación en español de la Premier League, adaptada a móvil y escritorio.
 
 - **Jornada:** calendario y resultados de las 38 jornadas.
 - **Clasificación:** tabla descargada de la fuente oficial de la Premier League, con su fecha de consulta.
@@ -45,3 +45,7 @@ Instalación Android: manifest con identidad y ámbito propios de esta app, aper
 ## Clasificación provisional 0.3.0
 
 La tabla oficial incluye una base de partidos que reproduce sus PJ, victorias, empates, derrotas y goles. Solo si esa conciliación es exacta se aplican las diferencias de marcadores a la tabla oficial, conservando sus puntos y posibles sanciones. Así no se duplica un resultado ya incluido. Los equipos afectados se marcan; ante empate el orden provisional por puntos, diferencia de goles y goles a favor puede variar respecto al desempate oficial. Si no se puede conciliar la base, se conserva la clasificación oficial con aviso.
+
+## Detalle de partidos
+
+Pulsa un partido de Jornada o Por d�a para abrir Alineaciones, Resumen y Estad�sticas. Consulta ESPN bajo demanda; muestra lo disponible sin inventar datos, incluidos avisos cuando a�n no hay once o ficha. Revisa cada minuto mientras est� abierto, salvo encuentros finalizados.

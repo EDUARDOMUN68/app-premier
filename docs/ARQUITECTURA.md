@@ -29,3 +29,7 @@ HTML referencia CSS, JS, león y manifest por URL versionada; el manifest versio
 0.3.3: tableBadge encuentra encuentros vivos por ID de equipo, muestra marcador en orden local–visitante y puntos de cada equipo. qualificationZone usa distribución base con 6/7 condicionales explícitos. Referencia: https://www.premierleague.com/en/european-qualification-explained.
 
 0.3.4: visibilitychange visible, focus y pageshow disparan refresh con ventana de 1 segundo. Si busy, resumePending garantiza una consulta posterior. confirm_table_results solo se ejecuta tras official_table correcto; promueve provisional si ID y marcador coinciden con baseline exacta. No confirma por antigüedad ni con tabla de respaldo.
+
+## Detalle 0.4.0
+
+match-detail.js/css adaptados del detalle de Madridista a eng.1. El cliente resuelve el evento por fecha Madrid y ambos equipos en el scoreboard y valida equipos del summary. No escribe datos oficiales ni notificaciones. Modal con pestañas y teclado, aborta al cerrar/cambiar, ignora respuestas tardías y pausa oculto. Publicación y servidor incluyen explícitamente ambos recursos.
