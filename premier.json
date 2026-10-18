@@ -1,6 +1,6 @@
 {
   "version": "0.4.0",
-  "updatedAt": "2026-10-18T15:56:31.781172+00:00",
+  "updatedAt": "2026-10-18T18:40:22.867624+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -1006,10 +1006,11 @@
       "away": 1,
       "kickoff": "2026-10-18T15:30:00Z",
       "confirmed": true,
-      "status": "live",
-      "minutes": 20,
+      "status": "finished",
+      "minutes": 90,
       "homeScore": 0,
-      "awayScore": 0
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 70,
@@ -5070,8 +5071,19 @@
         "pts": 21
       },
       {
-        "name": "Brighton and Hove Albion",
+        "name": "Arsenal",
         "position": 2,
+        "p": 7,
+        "w": 6,
+        "d": 0,
+        "l": 1,
+        "gf": 11,
+        "ga": 5,
+        "pts": 18
+      },
+      {
+        "name": "Brighton and Hove Albion",
+        "position": 3,
         "p": 7,
         "w": 5,
         "d": 1,
@@ -5079,17 +5091,6 @@
         "gf": 23,
         "ga": 5,
         "pts": 16
-      },
-      {
-        "name": "Arsenal",
-        "position": 3,
-        "p": 6,
-        "w": 5,
-        "d": 0,
-        "l": 1,
-        "gf": 10,
-        "ga": 5,
-        "pts": 15
       },
       {
         "name": "Chelsea",
@@ -5248,12 +5249,12 @@
       {
         "name": "Nottingham Forest",
         "position": 18,
-        "p": 6,
+        "p": 7,
         "w": 1,
         "d": 2,
-        "l": 3,
+        "l": 4,
         "gf": 5,
-        "ga": 8,
+        "ga": 9,
         "pts": 5
       },
       {
@@ -5280,7 +5281,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-18T15:56:32.063818+00:00",
+    "updatedAt": "2026-10-18T18:40:23.117262+00:00",
     "baseline": {
       "1": [
         3,
@@ -5552,6 +5553,10 @@
       ],
       "66": [
         1,
+        1
+      ],
+      "69": [
+        0,
         1
       ]
     }
