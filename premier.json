@@ -1,6 +1,6 @@
 {
   "version": "0.4.0",
-  "updatedAt": "2026-10-18T06:00:00.517327+00:00",
+  "updatedAt": "2026-10-18T11:17:25.617619+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -5277,7 +5277,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-18T06:00:00.766418+00:00",
+    "updatedAt": "2026-10-18T11:17:25.859731+00:00",
     "baseline": {
       "1": [
         3,
