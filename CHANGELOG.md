@@ -58,3 +58,8 @@
 - Detalle de partido desde Jornada y Por día: Alineaciones, Resumen y Estadísticas como Madridista.
 - Titulares, suplentes, formación, goles, asistencias, tarjetas y cambios cuando ESPN los proporciona.
 - Consulta bajo demanda, refresco cada minuto, pausa en segundo plano, cierre y reintento accesibles.
+
+## 0.4.1 — 19 de octubre de 2026
+
+- Abre Resumen por defecto al tocar un partido en Jornada o Por día.
+- Goles en verde destacado y cambios en lila, con iconos/etiquetas; tarjetas con sus tonos.
