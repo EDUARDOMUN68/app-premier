@@ -1,6 +1,6 @@
 {
-  "version": "0.4.0",
-  "updatedAt": "2026-10-19T17:32:33.310710+00:00",
+  "version": "0.4.1",
+  "updatedAt": "2026-10-19T20:57:23.879340+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -1020,10 +1020,10 @@
       "away": 7,
       "kickoff": "2026-10-19T19:00:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "live",
+      "minutes": 90,
+      "homeScore": 2,
+      "awayScore": 1
     },
     {
       "id": 77,
@@ -5281,7 +5281,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-19T17:32:33.552008+00:00",
+    "updatedAt": "2026-10-19T20:57:23.945784+00:00",
     "baseline": {
       "1": [
         3,
