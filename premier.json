@@ -1,6 +1,6 @@
 {
   "version": "0.4.1",
-  "updatedAt": "2026-10-31T18:38:13.642394+00:00",
+  "updatedAt": "2026-10-31T22:33:37.060702+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -1238,10 +1238,11 @@
       "away": 8,
       "kickoff": "2026-10-31T17:30:00Z",
       "confirmed": true,
-      "status": "live",
-      "minutes": 45,
-      "homeScore": 1,
-      "awayScore": 0
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 2,
+      "awayScore": 0,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 81,
@@ -1251,10 +1252,11 @@
       "away": 10,
       "kickoff": "2026-10-31T20:00:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 1,
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 87,
@@ -5134,8 +5136,30 @@
         "pts": 12
       },
       {
-        "name": "Hull City",
+        "name": "Tottenham Hotspur",
         "position": 8,
+        "p": 9,
+        "w": 3,
+        "d": 3,
+        "l": 3,
+        "gf": 10,
+        "ga": 10,
+        "pts": 12
+      },
+      {
+        "name": "Aston Villa",
+        "position": 9,
+        "p": 9,
+        "w": 3,
+        "d": 3,
+        "l": 3,
+        "gf": 10,
+        "ga": 13,
+        "pts": 12
+      },
+      {
+        "name": "Hull City",
+        "position": 10,
         "p": 9,
         "w": 2,
         "d": 5,
@@ -5146,7 +5170,7 @@
       },
       {
         "name": "Leeds United",
-        "position": 9,
+        "position": 11,
         "p": 9,
         "w": 2,
         "d": 5,
@@ -5157,7 +5181,7 @@
       },
       {
         "name": "Newcastle United",
-        "position": 10,
+        "position": 12,
         "p": 8,
         "w": 3,
         "d": 2,
@@ -5167,19 +5191,8 @@
         "pts": 11
       },
       {
-        "name": "Aston Villa",
-        "position": 11,
-        "p": 8,
-        "w": 3,
-        "d": 2,
-        "l": 3,
-        "gf": 9,
-        "ga": 12,
-        "pts": 11
-      },
-      {
         "name": "Ipswich Town",
-        "position": 12,
+        "position": 13,
         "p": 9,
         "w": 3,
         "d": 2,
@@ -5190,7 +5203,7 @@
       },
       {
         "name": "Everton",
-        "position": 13,
+        "position": 14,
         "p": 8,
         "w": 2,
         "d": 4,
@@ -5200,19 +5213,19 @@
         "pts": 10
       },
       {
-        "name": "Tottenham Hotspur",
-        "position": 14,
-        "p": 8,
+        "name": "Fulham",
+        "position": 15,
+        "p": 9,
         "w": 2,
         "d": 3,
-        "l": 3,
-        "gf": 8,
-        "ga": 10,
+        "l": 4,
+        "gf": 9,
+        "ga": 11,
         "pts": 9
       },
       {
         "name": "Coventry City",
-        "position": 15,
+        "position": 16,
         "p": 9,
         "w": 3,
         "d": 0,
@@ -5220,17 +5233,6 @@
         "gf": 9,
         "ga": 16,
         "pts": 9
-      },
-      {
-        "name": "Fulham",
-        "position": 16,
-        "p": 8,
-        "w": 2,
-        "d": 2,
-        "l": 4,
-        "gf": 8,
-        "ga": 10,
-        "pts": 8
       },
       {
         "name": "Manchester United",
@@ -5246,12 +5248,12 @@
       {
         "name": "Crystal Palace",
         "position": 18,
-        "p": 8,
+        "p": 9,
         "w": 2,
         "d": 1,
-        "l": 5,
+        "l": 6,
         "gf": 9,
-        "ga": 19,
+        "ga": 21,
         "pts": 7
       },
       {
@@ -5278,7 +5280,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-10-31T18:38:13.829474+00:00",
+    "updatedAt": "2026-10-31T22:33:37.328433+00:00",
     "baseline": {
       "1": [
         3,
@@ -5622,6 +5624,14 @@
       ],
       "88": [
         0,
+        1
+      ],
+      "90": [
+        2,
+        0
+      ],
+      "81": [
+        1,
         1
       ]
     }
