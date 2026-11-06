@@ -63,3 +63,7 @@
 
 - Abre Resumen por defecto al tocar un partido en Jornada o Por día.
 - Goles en verde destacado y cambios en lila, con iconos/etiquetas; tarjetas con sus tonos.
+
+### Calendario — 2026-11-06
+
+- Ampliados los horarios verificados con 110 partidos de las jornadas 10–20, hasta el 7 de enero de 2027.

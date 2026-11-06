@@ -37,3 +37,5 @@ match-detail.js/css adaptados del detalle de Madridista a eng.1. El cliente resu
 ### Detalle 0.4.1
 
 Jornada y Por día abren Resumen por defecto. Goles destacados en verde y cambios en lila, con iconos y etiquetas de entrada/salida. Tarjetas con tonos propios; superficies claras y texto oscuro. Alineaciones y Estadísticas permanecen accesibles.
+
+Calendario del 6 de noviembre de 2026: el catálogo de verificación incorpora las jornadas 10–20, cruzadas por equipos y hora UTC con los anuncios oficiales. Incluye la corrección posterior de Nottingham Forest–Everton. Mantener el catálogo con los nuevos anuncios; FPL por sí sola no confirma futuras fechas.
