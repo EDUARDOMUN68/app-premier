@@ -1,6 +1,6 @@
 {
   "version": "0.4.1",
-  "updatedAt": "2026-11-07T15:43:42.915660+00:00",
+  "updatedAt": "2026-11-07T20:16:44.740332+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -1312,10 +1312,11 @@
       "away": 11,
       "kickoff": "2026-11-07T15:00:00Z",
       "confirmed": true,
-      "status": "live",
-      "minutes": 38,
-      "homeScore": 0,
-      "awayScore": 0
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 1,
+      "awayScore": 0,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 95,
@@ -1325,10 +1326,11 @@
       "away": 17,
       "kickoff": "2026-11-07T15:00:00Z",
       "confirmed": true,
-      "status": "live",
-      "minutes": 38,
-      "homeScore": 0,
-      "awayScore": 0
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 1,
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 99,
@@ -1338,10 +1340,11 @@
       "away": 15,
       "kickoff": "2026-11-07T17:30:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 3,
+      "awayScore": 1,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 92,
@@ -5055,23 +5058,23 @@
       {
         "name": "Arsenal",
         "position": 1,
-        "p": 9,
-        "w": 8,
+        "p": 10,
+        "w": 9,
         "d": 0,
         "l": 1,
-        "gf": 14,
+        "gf": 15,
         "ga": 5,
-        "pts": 24
+        "pts": 27
       },
       {
         "name": "Manchester City",
         "position": 2,
-        "p": 9,
+        "p": 10,
         "w": 7,
         "d": 0,
-        "l": 2,
-        "gf": 20,
-        "ga": 10,
+        "l": 3,
+        "gf": 21,
+        "ga": 13,
         "pts": 21
       },
       {
@@ -5163,8 +5166,19 @@
         "pts": 12
       },
       {
-        "name": "Aston Villa",
+        "name": "Newcastle United",
         "position": 11,
+        "p": 10,
+        "w": 3,
+        "d": 3,
+        "l": 4,
+        "gf": 13,
+        "ga": 16,
+        "pts": 12
+      },
+      {
+        "name": "Aston Villa",
+        "position": 12,
         "p": 9,
         "w": 3,
         "d": 3,
@@ -5175,24 +5189,13 @@
       },
       {
         "name": "Hull City",
-        "position": 12,
-        "p": 9,
+        "position": 13,
+        "p": 10,
         "w": 2,
         "d": 5,
-        "l": 2,
+        "l": 3,
         "gf": 11,
-        "ga": 10,
-        "pts": 11
-      },
-      {
-        "name": "Newcastle United",
-        "position": 13,
-        "p": 9,
-        "w": 3,
-        "d": 2,
-        "l": 4,
-        "gf": 12,
-        "ga": 15,
+        "ga": 11,
         "pts": 11
       },
       {
@@ -5209,17 +5212,28 @@
       {
         "name": "Fulham",
         "position": 15,
-        "p": 9,
+        "p": 10,
+        "w": 2,
+        "d": 4,
+        "l": 4,
+        "gf": 10,
+        "ga": 12,
+        "pts": 10
+      },
+      {
+        "name": "Nottingham Forest",
+        "position": 16,
+        "p": 10,
         "w": 2,
         "d": 3,
-        "l": 4,
+        "l": 5,
         "gf": 9,
-        "ga": 11,
+        "ga": 13,
         "pts": 9
       },
       {
         "name": "Coventry City",
-        "position": 16,
+        "position": 17,
         "p": 10,
         "w": 3,
         "d": 0,
@@ -5230,7 +5244,7 @@
       },
       {
         "name": "Manchester United",
-        "position": 17,
+        "position": 18,
         "p": 9,
         "w": 1,
         "d": 4,
@@ -5241,7 +5255,7 @@
       },
       {
         "name": "Crystal Palace",
-        "position": 18,
+        "position": 19,
         "p": 9,
         "w": 2,
         "d": 1,
@@ -5249,17 +5263,6 @@
         "gf": 9,
         "ga": 21,
         "pts": 7
-      },
-      {
-        "name": "Nottingham Forest",
-        "position": 19,
-        "p": 9,
-        "w": 1,
-        "d": 3,
-        "l": 5,
-        "gf": 6,
-        "ga": 12,
-        "pts": 6
       },
       {
         "name": "Sunderland",
@@ -5274,7 +5277,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-11-07T15:43:43.205024+00:00",
+    "updatedAt": "2026-11-07T20:16:45.172617+00:00",
     "baseline": {
       "1": [
         3,
@@ -5643,6 +5646,18 @@
       "97": [
         1,
         0
+      ],
+      "91": [
+        1,
+        0
+      ],
+      "95": [
+        1,
+        1
+      ],
+      "99": [
+        3,
+        1
       ]
     }
   }
