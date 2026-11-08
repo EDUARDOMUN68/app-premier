@@ -1,6 +1,6 @@
 {
   "version": "0.4.1",
-  "updatedAt": "2026-11-08T13:36:46.401126+00:00",
+  "updatedAt": "2026-11-08T18:52:11.056940+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -1354,10 +1354,11 @@
       "away": 4,
       "kickoff": "2026-11-08T14:00:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 2,
+      "awayScore": 0,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 93,
@@ -1367,10 +1368,11 @@
       "away": 14,
       "kickoff": "2026-11-08T14:00:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 1,
+      "awayScore": 3,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 96,
@@ -1380,10 +1382,11 @@
       "away": 3,
       "kickoff": "2026-11-08T14:00:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 1,
+      "awayScore": 2,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 100,
@@ -1393,10 +1396,11 @@
       "away": 6,
       "kickoff": "2026-11-08T14:00:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 1,
+      "awayScore": 0,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 98,
@@ -1406,10 +1410,11 @@
       "away": 2,
       "kickoff": "2026-11-08T16:30:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 4,
+      "awayScore": 4,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 108,
@@ -5067,8 +5072,19 @@
         "pts": 27
       },
       {
-        "name": "Manchester City",
+        "name": "Brighton and Hove Albion",
         "position": 2,
+        "p": 10,
+        "w": 7,
+        "d": 1,
+        "l": 2,
+        "gf": 26,
+        "ga": 7,
+        "pts": 22
+      },
+      {
+        "name": "Manchester City",
+        "position": 3,
         "p": 10,
         "w": 7,
         "d": 0,
@@ -5078,30 +5094,30 @@
         "pts": 21
       },
       {
-        "name": "Brighton and Hove Albion",
-        "position": 3,
-        "p": 9,
-        "w": 6,
-        "d": 1,
+        "name": "Liverpool",
+        "position": 4,
+        "p": 10,
+        "w": 5,
+        "d": 3,
         "l": 2,
-        "gf": 24,
-        "ga": 7,
-        "pts": 19
+        "gf": 14,
+        "ga": 10,
+        "pts": 18
       },
       {
         "name": "Chelsea",
-        "position": 4,
-        "p": 9,
+        "position": 5,
+        "p": 10,
         "w": 5,
         "d": 1,
-        "l": 3,
+        "l": 4,
         "gf": 19,
-        "ga": 15,
+        "ga": 16,
         "pts": 16
       },
       {
         "name": "Everton",
-        "position": 5,
+        "position": 6,
         "p": 10,
         "w": 4,
         "d": 4,
@@ -5111,30 +5127,30 @@
         "pts": 16
       },
       {
-        "name": "Liverpool",
-        "position": 6,
-        "p": 9,
+        "name": "Bournemouth",
+        "position": 7,
+        "p": 10,
         "w": 4,
         "d": 3,
-        "l": 2,
-        "gf": 11,
-        "ga": 9,
+        "l": 3,
+        "gf": 16,
+        "ga": 14,
         "pts": 15
       },
       {
         "name": "Brentford",
-        "position": 7,
-        "p": 9,
+        "position": 8,
+        "p": 10,
         "w": 3,
         "d": 5,
-        "l": 1,
+        "l": 2,
         "gf": 16,
-        "ga": 9,
+        "ga": 11,
         "pts": 14
       },
       {
         "name": "Leeds United",
-        "position": 8,
+        "position": 9,
         "p": 10,
         "w": 3,
         "d": 5,
@@ -5144,19 +5160,19 @@
         "pts": 14
       },
       {
-        "name": "Bournemouth",
-        "position": 9,
-        "p": 9,
+        "name": "Aston Villa",
+        "position": 10,
+        "p": 10,
         "w": 3,
-        "d": 3,
+        "d": 4,
         "l": 3,
         "gf": 14,
-        "ga": 13,
-        "pts": 12
+        "ga": 17,
+        "pts": 13
       },
       {
         "name": "Tottenham Hotspur",
-        "position": 10,
+        "position": 11,
         "p": 10,
         "w": 3,
         "d": 3,
@@ -5167,24 +5183,13 @@
       },
       {
         "name": "Newcastle United",
-        "position": 11,
+        "position": 12,
         "p": 10,
         "w": 3,
         "d": 3,
         "l": 4,
         "gf": 13,
         "ga": 16,
-        "pts": 12
-      },
-      {
-        "name": "Aston Villa",
-        "position": 12,
-        "p": 9,
-        "w": 3,
-        "d": 3,
-        "l": 3,
-        "gf": 10,
-        "ga": 13,
         "pts": 12
       },
       {
@@ -5201,12 +5206,12 @@
       {
         "name": "Ipswich Town",
         "position": 14,
-        "p": 9,
+        "p": 10,
         "w": 3,
         "d": 2,
-        "l": 4,
-        "gf": 14,
-        "ga": 18,
+        "l": 5,
+        "gf": 15,
+        "ga": 20,
         "pts": 11
       },
       {
@@ -5245,39 +5250,39 @@
       {
         "name": "Manchester United",
         "position": 18,
-        "p": 9,
+        "p": 10,
         "w": 1,
-        "d": 4,
+        "d": 5,
         "l": 4,
-        "gf": 10,
-        "ga": 15,
-        "pts": 7
-      },
-      {
-        "name": "Crystal Palace",
-        "position": 19,
-        "p": 9,
-        "w": 2,
-        "d": 1,
-        "l": 6,
-        "gf": 9,
-        "ga": 21,
-        "pts": 7
+        "gf": 14,
+        "ga": 19,
+        "pts": 8
       },
       {
         "name": "Sunderland",
-        "position": 20,
-        "p": 9,
-        "w": 1,
+        "position": 19,
+        "p": 10,
+        "w": 2,
         "d": 2,
         "l": 6,
-        "gf": 7,
+        "gf": 8,
         "ga": 17,
-        "pts": 5
+        "pts": 8
+      },
+      {
+        "name": "Crystal Palace",
+        "position": 20,
+        "p": 10,
+        "w": 2,
+        "d": 1,
+        "l": 7,
+        "gf": 10,
+        "ga": 24,
+        "pts": 7
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-11-08T13:36:46.673371+00:00",
+    "updatedAt": "2026-11-08T18:52:11.243731+00:00",
     "baseline": {
       "1": [
         3,
@@ -5658,6 +5663,26 @@
       "99": [
         3,
         1
+      ],
+      "92": [
+        2,
+        0
+      ],
+      "93": [
+        1,
+        3
+      ],
+      "96": [
+        1,
+        2
+      ],
+      "100": [
+        1,
+        0
+      ],
+      "98": [
+        4,
+        4
       ]
     }
   }
