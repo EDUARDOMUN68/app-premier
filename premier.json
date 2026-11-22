@@ -1,6 +1,6 @@
 {
   "version": "0.4.1",
-  "updatedAt": "2026-11-22T16:20:55.485629+00:00",
+  "updatedAt": "2026-11-22T22:29:50.969250+00:00",
   "source": "https://fantasy.premierleague.com/api/",
   "confirmationSource": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
   "teams": [
@@ -1526,10 +1526,11 @@
       "away": 16,
       "kickoff": "2026-11-22T16:30:00Z",
       "confirmed": true,
-      "status": "scheduled",
-      "minutes": 0,
-      "homeScore": null,
-      "awayScore": null
+      "status": "finished",
+      "minutes": 90,
+      "homeScore": 4,
+      "awayScore": 0,
+      "resultConfirmedBy": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings"
     },
     {
       "id": 103,
@@ -5092,25 +5093,25 @@
         "pts": 22
       },
       {
-        "name": "Bournemouth",
+        "name": "Liverpool",
         "position": 4,
+        "p": 11,
+        "w": 6,
+        "d": 3,
+        "l": 2,
+        "gf": 18,
+        "ga": 10,
+        "pts": 21
+      },
+      {
+        "name": "Bournemouth",
+        "position": 5,
         "p": 11,
         "w": 5,
         "d": 3,
         "l": 3,
         "gf": 18,
         "ga": 14,
-        "pts": 18
-      },
-      {
-        "name": "Liverpool",
-        "position": 5,
-        "p": 10,
-        "w": 5,
-        "d": 3,
-        "l": 2,
-        "gf": 14,
-        "ga": 10,
         "pts": 18
       },
       {
@@ -5259,12 +5260,12 @@
       {
         "name": "Manchester United",
         "position": 19,
-        "p": 10,
+        "p": 11,
         "w": 1,
         "d": 5,
-        "l": 4,
+        "l": 5,
         "gf": 14,
-        "ga": 19,
+        "ga": 23,
         "pts": 8
       },
       {
@@ -5280,7 +5281,7 @@
       }
     ],
     "source": "https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v5/competitions/8/seasons/2026/standings",
-    "updatedAt": "2026-11-22T16:20:55.691438+00:00",
+    "updatedAt": "2026-11-22T22:29:51.242021+00:00",
     "baseline": {
       "1": [
         3,
@@ -5712,6 +5713,10 @@
       ],
       "106": [
         2,
+        0
+      ],
+      "107": [
+        4,
         0
       ]
     }
